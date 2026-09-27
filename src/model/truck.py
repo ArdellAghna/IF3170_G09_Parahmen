@@ -4,4 +4,4 @@ class Truck:
         self.max_cap = max_cap
         
     def __repr__(self):
-        return f"Truck(Dim:{self.dimensions}, MaxCap:{self.max_capacity})"
+        return f"Truck(Dim:{self.dim}, MaxCap:{self.max_cap})"
