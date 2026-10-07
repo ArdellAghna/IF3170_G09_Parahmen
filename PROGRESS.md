@@ -33,3 +33,10 @@ Hai kak halo wan, ini catatan log nya
 ### utilitas (`src/utilitas/helpers.py`)
 
 ### Run nya pake .venv
+
+### Yang belum
+
+- SA
+- GA
+- Visualisasi
+- `src/main.py` (CLI) sama `src/config.py`
