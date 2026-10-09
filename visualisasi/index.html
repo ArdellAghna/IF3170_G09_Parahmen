@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Bin Packing Visualizer - IF3170 G09</title>
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --panel-bg: rgba(30, 41, 59, 0.75);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+        }
+        #ui-container {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 380px;
+            max-height: 90vh;
+            overflow-y: auto;
+            background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+        /* Custom scrollbar for ui-container */
+        #ui-container::-webkit-scrollbar { width: 6px; }
+        #ui-container::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            background: -webkit-linear-gradient(45deg, #3b82f6, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p.subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0;
+            margin-bottom: 24px;
+        }
+        .file-upload {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: rgba(0,0,0,0.2);
+            border: 1px dashed var(--text-muted);
+            border-radius: 8px;
+            color: var(--text-main);
+            cursor: pointer;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            font-size: 0.9rem;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            flex: 1;
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 10px 0;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        button:hover { background: var(--accent-hover); }
+        button:disabled { background: #475569; cursor: not-allowed; opacity: 0.7; }
+        
+        .stats {
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        .stat-row { display: flex; justify-content: space-between; margin-bottom: 6px; }
+        .stat-row:last-child { margin-bottom: 0; }
+        .stat-label { color: var(--text-muted); }
+        .stat-value { font-weight: 600; }
+        
+        #chart-container {
+            width: 100%;
+            height: 200px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #canvas-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; }
+        .legend { margin-top: 15px; font-size: 0.8rem; }
+        .legend-item { display: flex; align-items: center; margin-bottom: 4px; }
+        .legend-color { width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; }
+        hr { border: none; border-top: 1px solid var(--glass-border); margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+    <div id="ui-container">
+        <h1>Mejiro Express 3D</h1>
+        <p class="subtitle">IF3170 Tugas Besar 1 - Tim Parahmen</p>
+        
+        <input type="file" id="jsonInput" accept=".json" class="file-upload">
+        
+        <div class="btn-group">
+            <button id="btnInitial" disabled>Initial State</button>
+            <button id="btnFinal" disabled>Final State</button>
+        </div>
+
+        <div class="stats" id="statsBox" style="display: none;">
+            <div class="stat-row"><span class="stat-label">Algoritma:</span><span class="stat-value" id="valAlgo">-</span></div>
+            <div class="stat-row"><span class="stat-label">Durasi Pencarian:</span><span class="stat-value" id="valDuration">-</span></div>
+            <div class="stat-row"><span class="stat-label">Total Iterasi:</span><span class="stat-value" id="valIter">-</span></div>
+            <hr>
+            <div class="stat-row"><span class="stat-label">Nilai Saat Ini:</span><span class="stat-value" id="valValue" style="color:#10b981">-</span></div>
+            <div class="stat-row"><span class="stat-label">Total Weight:</span><span class="stat-value" id="valWeight">-</span></div>
+            <div class="stat-row"><span class="stat-label">Paket Masuk:</span><span class="stat-value" id="valInside">-</span></div>
+        </div>
+
+        <div id="chart-container">
+            <canvas id="objChart"></canvas>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-color" style="background:#3b82f6"></div> Paket Biasa</div>
+            <div class="legend-item"><div class="legend-color" style="background:#ef4444"></div> Paket Fragile</div>
+            <div class="legend-item"><div class="legend-color" style="border: 1px solid #ffffff; background:transparent"></div> Peti Kemas</div>
+        </div>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <script>
+        let scene, camera, renderer, controls;
+        let truckGroup;
+        let loadedJson = null;
+        let myChart = null;
+
+        function init() {
+            const container = document.getElementById('canvas-container');
+            scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x0f172a, 0.005);
+
+            camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+            camera.position.set(60, 40, 80);
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+
+            // Lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
+            dirLight.position.set(50, 100, 50);
+            scene.add(dirLight);
+
+            // Grid & Axes
+            const gridHelper = new THREE.GridHelper(100, 100, 0x334155, 0x1e293b);
+            gridHelper.position.y = 0;
+            scene.add(gridHelper);
+
+            truckGroup = new THREE.Group();
+            scene.add(truckGroup);
+
+            window.addEventListener('resize', onWindowResize);
+            animate();
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        function drawState(stateData) {
+            // Bersihkan objek lama
+            while(truckGroup.children.length > 0){ 
+                truckGroup.remove(truckGroup.children[0]); 
+            }
+
+            const truckDim = stateData.truck.dimensions;
+            const tw = truckDim.w;
+            const th = truckDim.h;
+            const tl = truckDim.l;
+
+            // 1. Gambar Wireframe Truk
+            const truckGeo = new THREE.BoxGeometry(tw, th, tl);
+            const edges = new THREE.EdgesGeometry(truckGeo);
+            const lineMat = new THREE.LineBasicMaterial({ color: 0xffffff, opacity: 0.3, transparent: true });
+            const truckLines = new THREE.LineSegments(edges, lineMat);
+            truckLines.position.set(tw/2, th/2, tl/2);
+            truckGroup.add(truckLines);
+
+            // 2. Gambar Paket
+            let totalVal = 0, totalW = 0, countInside = 0;
+
+            stateData.packages.forEach(pkg => {
+                const pos = stateData.placements[pkg.id];
+                if (!pos) return; 
+
+                countInside++;
+                totalVal += pkg.value;
+                totalW += pkg.weight;
+
+                const pw = pkg.cur_dim.w;
+                const ph = pkg.cur_dim.h;
+                const pl = pkg.cur_dim.l;
+                const px = pos[0];
+                const py = pos[1]; // y spek -> z three.js
+                const pz = pos[2]; // z spek -> y three.js
+
+                const geo = new THREE.BoxGeometry(pw, ph, pl);
+                
+                const baseColor = pkg.is_fragile ? new THREE.Color(0xfca5a5) : new THREE.Color(0x93c5fd);
+                const darken = (px + py + pz) % 20 / 100;
+                baseColor.sub(new THREE.Color(darken, darken, darken));
+
+                const mat = new THREE.MeshPhongMaterial({ 
+                    color: baseColor,
+                    transparent: true,
+                    opacity: 0.9,
+                    shininess: 60
+                });
+                
+                const mesh = new THREE.Mesh(geo, mat);
+                mesh.position.set(px + pw/2, pz + ph/2, py + pl/2);
+                
+                const pkgEdges = new THREE.EdgesGeometry(geo);
+                const pkgLine = new THREE.LineSegments(pkgEdges, new THREE.LineBasicMaterial({ color: 0x1e293b }));
+                mesh.add(pkgLine);
+
+                truckGroup.add(mesh);
+            });
+
+            // Update UI State Properties
+            document.getElementById('valValue').innerText = totalVal;
+            document.getElementById('valWeight').innerText = totalW + " / " + stateData.truck.max_capacity;
+            document.getElementById('valInside').innerText = countInside + " / " + stateData.packages.length;
+            
+            controls.target.set(tw/2, th/2, tl/2);
+        }
+
+        function drawChart(json) {
+            const ctx = document.getElementById('objChart').getContext('2d');
+            document.getElementById('chart-container').style.display = 'block';
+            
+            if(myChart) myChart.destroy();
+            
+            const labels = Array.from({length: json.history.length}, (_, i) => i);
+            let datasets = [{
+                label: 'Objective (Max)',
+                data: json.history,
+                borderColor: '#10b981',
+                tension: 0.1,
+                pointRadius: 0
+            }];
+
+            // Jika Algoritma GA, tambahkan plot rata-rata
+            if(json.metrics && json.metrics.avg_history) {
+                datasets.push({
+                    label: 'Objective (Avg)',
+                    data: json.metrics.avg_history,
+                    borderColor: '#f59e0b',
+                    borderDash: [5, 5],
+                    tension: 0.1,
+                    pointRadius: 0
+                });
+            }
+
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: { labels: labels, datasets: datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#f8fafc', font: {size: 10} } }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } },
+                        y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } }
+                    }
+                }
+            });
+        }
+
+        document.getElementById('jsonInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    loadedJson = JSON.parse(e.target.result);
+                    
+                    document.getElementById('btnInitial').disabled = false;
+                    document.getElementById('btnFinal').disabled = false;
+                    
+                    // Update Metadata
+                    document.getElementById('statsBox').style.display = 'block';
+                    let algoName = loadedJson.algorithm;
+                    if(loadedJson.variant) algoName += ` (${loadedJson.variant})`;
+                    document.getElementById('valAlgo').innerText = algoName;
+                    document.getElementById('valDuration').innerText = loadedJson.duration.toFixed(3) + " detik";
+                    document.getElementById('valIter').innerText = loadedJson.n_iterations;
+
+                    drawChart(loadedJson);
+                    drawState(loadedJson.final_state);
+                } catch(err) {
+                    alert("Error parsing JSON: " + err);
+                }
+            };
+            reader.readAsText(file);
+        });
+
+        document.getElementById('btnInitial').addEventListener('click', () => {
+            if(loadedJson) drawState(loadedJson.initial_state);
+        });
+
+        document.getElementById('btnFinal').addEventListener('click', () => {
+            if(loadedJson) drawState(loadedJson.final_state);
+        });
+
+        window.onload = init;
+    </script>
+</body>
+</html>
