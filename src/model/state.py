@@ -8,7 +8,6 @@ from src.model.truck import Truck
 
 Position = Tuple[int, int, int]
 
-
 class State:
     # penempatan: Kalo none diluar treuk
     def __init__(self, truck: Truck, packages: List[Package]) -> None:
