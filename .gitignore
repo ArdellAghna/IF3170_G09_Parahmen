@@ -4,9 +4,6 @@ __pycache__/
 .venv/
 venv/
 
-output/
-!output/.gitkeep
-
 .vscode/
 .idea/
 .DS_Store
