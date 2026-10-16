@@ -136,6 +136,8 @@
             <div class="stat-row"><span class="stat-label">Algoritma:</span><span class="stat-value" id="valAlgo">-</span></div>
             <div class="stat-row"><span class="stat-label">Durasi Pencarian:</span><span class="stat-value" id="valDuration">-</span></div>
             <div class="stat-row"><span class="stat-label">Total Iterasi:</span><span class="stat-value" id="valIter">-</span></div>
+            <div class="stat-row" id="rowStuck" style="display: none;"><span class="stat-label">Frekuensi Stuck:</span><span class="stat-value" id="valStuck">-</span></div>
+            <div class="stat-row" id="rowAccepted" style="display: none;"><span class="stat-label">Langkah Memburuk Diterima:</span><span class="stat-value" id="valAccepted">-</span></div>
             <hr>
             <div class="stat-row"><span class="stat-label">Nilai Saat Ini:</span><span class="stat-value" id="valValue" style="color:#10b981">-</span></div>
             <div class="stat-row"><span class="stat-label">Total Weight:</span><span class="stat-value" id="valWeight">-</span></div>
@@ -304,6 +306,18 @@
                 });
             }
 
+            // Jika Algoritma SA, tambahkan plot probabilitas e^(ΔE/T)
+            if(json.metrics && json.metrics.prob_history) {
+                datasets.push({
+                    label: 'e^(ΔE/T)',
+                    data: json.metrics.prob_history,
+                    borderColor: '#f59e0b',
+                    borderDash: [5, 5],
+                    tension: 0.1,
+                    pointRadius: 0
+                });
+            }
+
             myChart = new Chart(ctx, {
                 type: 'line',
                 data: { labels: labels, datasets: datasets },
@@ -340,6 +354,16 @@
                     document.getElementById('valAlgo').innerText = algoName;
                     document.getElementById('valDuration').innerText = loadedJson.duration.toFixed(3) + " detik";
                     document.getElementById('valIter').innerText = loadedJson.n_iterations;
+
+                    if(loadedJson.algorithm === 'simulated_annealing' && loadedJson.metrics) {
+                        document.getElementById('rowStuck').style.display = 'flex';
+                        document.getElementById('rowAccepted').style.display = 'flex';
+                        document.getElementById('valStuck').innerText = loadedJson.metrics.stuck_count;
+                        document.getElementById('valAccepted').innerText = loadedJson.metrics.accepted_worse;
+                    } else {
+                        document.getElementById('rowStuck').style.display = 'none';
+                        document.getElementById('rowAccepted').style.display = 'none';
+                    }
 
                     drawChart(loadedJson);
                     drawState(loadedJson.final_state);
