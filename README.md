@@ -85,4 +85,4 @@ Pilih salah satu berkas JSON dari `output/`.
 |---|---|---|
 | Ardell Aghna Mahendra |13523151| Silahkan isi |
 | Fazri Arrashyi Putra |13524127| Inisiasi Tugas, 4 Algoritma HC, Testing & Laporan |
-| Dzakwan Muhammad Khairan Putra Purnama |13524145| Algoritma visualisasi via HTML, testing output penyimpanan dalam format .json, Inisiasi Laporan Utama|
+| Dzakwan Muhammad Khairan Putra Purnama |13524145| Rancang Web visualisasi via HTML, konstruksi main, eksekusi CLI dan ekspor output dalam format .json, inisiasi desain utama Laporan|
