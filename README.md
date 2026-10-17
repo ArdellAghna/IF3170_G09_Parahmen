@@ -83,6 +83,6 @@ Pilih salah satu berkas JSON dari `output/`.
 
 | Nama | NIM | Pekerjaan |
 |---|---|---|
-| Ardell Aghna Mahendra |13523151| Silahkan isi |
+| Ardell Aghna Mahendra |13523151| Membuat algoritma SA, membuat algoritima GA, testing program, menambahkan visualisasi untuk algoritma SA, dan laporan|
 | Fazri Arrashyi Putra |13524127| Inisiasi Tugas, 4 Algoritma HC, Testing & Laporan |
 | Dzakwan Muhammad Khairan Putra Purnama |13524145| Rancang Web visualisasi via HTML, konstruksi main, eksekusi CLI dan ekspor output dalam format .json, inisiasi desain utama Laporan|
