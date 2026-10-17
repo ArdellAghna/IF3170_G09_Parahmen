@@ -14,10 +14,11 @@ from src.algoritma import hill_climbing, simulated_annealing, genetic_algorithm
 
 def generate_test_case() -> tuple[Truck, List[Package]]:
     random.seed(RANDOM_SEED)
-    truck = Truck({"w": 20, "l": 40, "h": 20}, max_capacity=2000)
+    
+    truck = Truck({"w": 14, "l": 24, "h": 12}, max_capacity=450)
     packages = []
-    # Buat 25 paket acak untuk eksperimen
-    for i in range(25):
+    # Buat 40 paket acak untuk percobaan
+    for i in range(40):
         w, l, h = random.randint(2, 6), random.randint(2, 6), random.randint(2, 6)
         val = random.randint(10, 100)
         weight = random.randint(5, 50)

@@ -10,256 +10,235 @@
     "elitism": 2,
     "no_improvement_limit": null
   },
-  "seed": 16750,
-  "initial_objective": 1273.0,
-  "final_objective": 1273.0,
+  "seed": 10335,
+  "initial_objective": 849.0,
+  "final_objective": 1114.0,
   "history": [
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0,
-    1273.0
+    1004.0,
+    1004.0,
+    1004.0,
+    1004.0,
+    1004.0,
+    1004.0,
+    1004.0,
+    1004.0,
+    1004.0,
+    1004.0,
+    1004.0,
+    1004.0,
+    1004.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1066.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1110.0,
+    1114.0,
+    1114.0
   ],
-  "duration": 5.108115261995408,
+  "duration": 8.582505559999845,
   "n_iterations": 50,
   "metrics": {
     "crossovers": 900,
-    "mutations": 89,
-    "improving_generations": 0,
+    "mutations": 77,
+    "improving_generations": 3,
     "avg_history": [
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1269.1,
-      1267.6,
-      1267.95,
-      1269.1,
-      1266.45,
-      1265.85,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1272.15,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1273.0,
-      1267.1,
-      1270.05,
-      1267.1,
-      1260.7,
-      1263.15,
-      1262.65,
-      1253.9,
-      1258.2,
-      1265.55,
-      1258.1,
-      1256.65,
-      1256.65,
-      1273.0,
-      1273.0,
-      1269.6,
-      1271.5,
-      1272.05,
-      1270.25,
-      1273.0,
-      1268.8,
-      1267.95,
-      1266.0
+      822.7,
+      760.4,
+      689.85,
+      687.5,
+      650.1,
+      676.45,
+      744.7,
+      680.05,
+      746.6,
+      905.35,
+      921.7,
+      943.5,
+      956.25,
+      979.85,
+      978.3,
+      993.45,
+      992.25,
+      992.3,
+      998.75,
+      1000.25,
+      1007.45,
+      1004.6,
+      1017.45,
+      1009.3,
+      1009.45,
+      1012.35,
+      1016.55,
+      1025.75,
+      1029.0,
+      1037.3,
+      1045.6,
+      1041.1,
+      1046.2,
+      1050.95,
+      1059.6,
+      1059.25,
+      1059.2,
+      1067.15,
+      1070.65,
+      1054.5,
+      1066.3,
+      1071.85,
+      1074.3,
+      1066.1,
+      1061.6,
+      1063.7,
+      1065.05,
+      1063.65,
+      1059.65,
+      1066.65,
+      1075.7
     ]
   },
   "initial_state": {
     "truck": {
       "dimensions": {
-        "w": 20,
-        "l": 40,
-        "h": 20
+        "w": 14,
+        "l": 24,
+        "h": 12
       },
-      "max_capacity": 2000
+      "max_capacity": 450
     },
     "placements": {
-      "PKG_0": [
-        3,
-        3,
-        2
-      ],
+      "PKG_0": null,
       "PKG_1": [
-        15,
-        29,
-        0
-      ],
-      "PKG_2": [
         4,
-        29,
-        5
-      ],
-      "PKG_3": [
-        3,
-        15,
-        4
-      ],
-      "PKG_4": [
-        0,
-        6,
-        0
-      ],
-      "PKG_5": [
-        12,
-        9,
-        3
-      ],
-      "PKG_6": [
-        5,
-        22,
-        12
-      ],
-      "PKG_7": [
-        4,
-        12,
-        11
-      ],
-      "PKG_8": [
-        13,
-        15,
-        3
-      ],
-      "PKG_9": [
-        7,
-        19,
+        14,
         6
       ],
-      "PKG_10": [
-        5,
-        10,
-        5
-      ],
-      "PKG_11": [
-        13,
-        5,
+      "PKG_2": null,
+      "PKG_3": null,
+      "PKG_4": [
+        1,
+        2,
         0
       ],
-      "PKG_12": [
-        6,
-        30,
-        8
-      ],
-      "PKG_13": [
+      "PKG_5": null,
+      "PKG_6": [
         7,
+        1,
+        0
+      ],
+      "PKG_7": null,
+      "PKG_8": null,
+      "PKG_9": null,
+      "PKG_10": null,
+      "PKG_11": null,
+      "PKG_12": null,
+      "PKG_13": null,
+      "PKG_14": null,
+      "PKG_15": null,
+      "PKG_16": null,
+      "PKG_17": null,
+      "PKG_18": [
+        4,
+        8,
+        0
+      ],
+      "PKG_19": null,
+      "PKG_20": [
+        2,
         17,
         0
       ],
-      "PKG_14": [
+      "PKG_21": [
+        6,
+        19,
+        0
+      ],
+      "PKG_22": null,
+      "PKG_23": null,
+      "PKG_24": [
+        7,
+        13,
+        0
+      ],
+      "PKG_25": null,
+      "PKG_26": [
+        0,
+        9,
+        5
+      ],
+      "PKG_27": null,
+      "PKG_28": [
+        0,
+        12,
+        0
+      ],
+      "PKG_29": null,
+      "PKG_30": [
+        10,
+        2,
+        3
+      ],
+      "PKG_31": [
+        9,
         8,
-        23,
+        0
+      ],
+      "PKG_32": [
+        9,
+        19,
         2
       ],
-      "PKG_15": [
-        3,
-        33,
-        0
+      "PKG_33": [
+        8,
+        4,
+        5
       ],
-      "PKG_16": [
+      "PKG_34": null,
+      "PKG_35": null,
+      "PKG_36": [
+        8,
         6,
-        23,
-        0
-      ],
-      "PKG_17": [
-        10,
-        27,
-        6
-      ],
-      "PKG_18": [
-        4,
-        10,
-        0
-      ],
-      "PKG_19": [
-        4,
-        32,
-        14
-      ],
-      "PKG_20": [
-        1,
-        16,
-        6
-      ],
-      "PKG_21": [
-        11,
-        12,
-        0
-      ],
-      "PKG_22": [
-        4,
-        10,
         7
       ],
-      "PKG_23": [
-        4,
-        1,
-        0
+      "PKG_37": [
+        8,
+        10,
+        5
       ],
-      "PKG_24": [
-        5,
-        12,
-        14
+      "PKG_38": null,
+      "PKG_39": [
+        9,
+        17,
+        0
       ]
     },
     "packages": [
@@ -271,8 +250,8 @@
           "h": 6
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
@@ -284,11 +263,7 @@
         "weight": 40,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          3,
-          3,
-          2
-        ]
+        "position": null
       },
       {
         "id": "PKG_1",
@@ -312,9 +287,9 @@
         "is_fragile": false,
         "eta": 0,
         "position": [
-          15,
-          29,
-          0
+          4,
+          14,
+          6
         ]
       },
       {
@@ -325,24 +300,20 @@
           "h": 3
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
-          "w": 4,
-          "l": 6,
+          "w": 6,
+          "l": 4,
           "h": 3
         },
         "value": 10,
         "weight": 11,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          4,
-          29,
-          5
-        ]
+        "position": null
       },
       {
         "id": "PKG_3",
@@ -353,23 +324,19 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 5,
-          "l": 6,
-          "h": 2
+          "l": 2,
+          "h": 6
         },
         "value": 78,
         "weight": 16,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          3,
-          15,
-          4
-        ]
+        "position": null
       },
       {
         "id": "PKG_4",
@@ -379,13 +346,13 @@
           "h": 4
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
-          "w": 2,
-          "l": 5,
+          "w": 5,
+          "l": 2,
           "h": 4
         },
         "value": 19,
@@ -393,8 +360,8 @@
         "is_fragile": false,
         "eta": 0,
         "position": [
-          0,
-          6,
+          1,
+          2,
           0
         ]
       },
@@ -406,8 +373,8 @@
           "h": 3
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
@@ -419,11 +386,7 @@
         "weight": 14,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          12,
-          9,
-          3
-        ]
+        "position": null
       },
       {
         "id": "PKG_6",
@@ -447,9 +410,9 @@
         "is_fragile": false,
         "eta": 0,
         "position": [
-          5,
-          22,
-          12
+          7,
+          1,
+          0
         ]
       },
       {
@@ -461,8 +424,8 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 3,
@@ -473,11 +436,7 @@
         "weight": 26,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          4,
-          12,
-          11
-        ]
+        "position": null
       },
       {
         "id": "PKG_8",
@@ -488,23 +447,19 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 6,
-          "l": 5,
-          "h": 2
+          "l": 2,
+          "h": 5
         },
         "value": 84,
         "weight": 8,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          13,
-          15,
-          3
-        ]
+        "position": null
       },
       {
         "id": "PKG_9",
@@ -514,24 +469,20 @@
           "h": 6
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
-          "w": 4,
-          "l": 6,
+          "w": 6,
+          "l": 4,
           "h": 6
         },
         "value": 68,
         "weight": 38,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          7,
-          19,
-          6
-        ]
+        "position": null
       },
       {
         "id": "PKG_10",
@@ -541,24 +492,20 @@
           "h": 2
         },
         "orientation": {
-          "w": "x",
+          "w": "z",
           "l": "y",
-          "h": "z"
+          "h": "x"
         },
         "cur_dim": {
-          "w": 6,
+          "w": 2,
           "l": 4,
-          "h": 2
+          "h": 6
         },
         "value": 10,
         "weight": 5,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          5,
-          10,
-          5
-        ]
+        "position": null
       },
       {
         "id": "PKG_11",
@@ -568,24 +515,20 @@
           "h": 5
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
-          "w": 3,
-          "l": 2,
+          "w": 2,
+          "l": 3,
           "h": 5
         },
         "value": 74,
         "weight": 10,
         "is_fragile": true,
         "eta": 0,
-        "position": [
-          13,
-          5,
-          0
-        ]
+        "position": null
       },
       {
         "id": "PKG_12",
@@ -595,24 +538,20 @@
           "h": 6
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
-          "w": 2,
-          "l": 3,
+          "w": 3,
+          "l": 2,
           "h": 6
         },
         "value": 11,
         "weight": 43,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          6,
-          30,
-          8
-        ]
+        "position": null
       },
       {
         "id": "PKG_13",
@@ -622,24 +561,20 @@
           "h": 4
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
-          "w": 6,
-          "l": 3,
+          "w": 3,
+          "l": 6,
           "h": 4
         },
         "value": 53,
         "weight": 48,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          7,
-          17,
-          0
-        ]
+        "position": null
       },
       {
         "id": "PKG_14",
@@ -649,24 +584,20 @@
           "h": 4
         },
         "orientation": {
-          "w": "x",
+          "w": "z",
           "l": "y",
-          "h": "z"
+          "h": "x"
         },
         "cur_dim": {
-          "w": 5,
+          "w": 4,
           "l": 5,
-          "h": 4
+          "h": 5
         },
         "value": 81,
         "weight": 50,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          8,
-          23,
-          2
-        ]
+        "position": null
       },
       {
         "id": "PKG_15",
@@ -676,8 +607,8 @@
           "h": 5
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
@@ -689,11 +620,7 @@
         "weight": 38,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          3,
-          33,
-          0
-        ]
+        "position": null
       },
       {
         "id": "PKG_16",
@@ -704,23 +631,19 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 5,
-          "l": 6,
-          "h": 2
+          "l": 2,
+          "h": 6
         },
         "value": 44,
         "weight": 24,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          6,
-          23,
-          0
-        ]
+        "position": null
       },
       {
         "id": "PKG_17",
@@ -730,24 +653,20 @@
           "h": 6
         },
         "orientation": {
-          "w": "x",
+          "w": "z",
           "l": "y",
-          "h": "z"
+          "h": "x"
         },
         "cur_dim": {
-          "w": 4,
+          "w": 6,
           "l": 5,
-          "h": 6
+          "h": 4
         },
         "value": 86,
         "weight": 38,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          10,
-          27,
-          6
-        ]
+        "position": null
       },
       {
         "id": "PKG_18",
@@ -772,7 +691,7 @@
         "eta": 0,
         "position": [
           4,
-          10,
+          8,
           0
         ]
       },
@@ -785,23 +704,19 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 3,
-          "l": 4,
-          "h": 2
+          "l": 2,
+          "h": 4
         },
         "value": 17,
         "weight": 23,
         "is_fragile": true,
         "eta": 0,
-        "position": [
-          4,
-          32,
-          14
-        ]
+        "position": null
       },
       {
         "id": "PKG_20",
@@ -825,9 +740,9 @@
         "is_fragile": false,
         "eta": 0,
         "position": [
-          1,
-          16,
-          6
+          2,
+          17,
+          0
         ]
       },
       {
@@ -852,8 +767,8 @@
         "is_fragile": false,
         "eta": 0,
         "position": [
-          11,
-          12,
+          6,
+          19,
           0
         ]
       },
@@ -866,23 +781,19 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 5,
-          "l": 3,
-          "h": 4
+          "l": 4,
+          "h": 3
         },
         "value": 93,
         "weight": 46,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          4,
-          10,
-          7
-        ]
+        "position": null
       },
       {
         "id": "PKG_23",
@@ -893,23 +804,19 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 3,
-          "l": 3,
-          "h": 2
+          "l": 2,
+          "h": 3
         },
         "value": 59,
         "weight": 47,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          4,
-          1,
-          0
-        ]
+        "position": null
       },
       {
         "id": "PKG_24",
@@ -933,150 +840,514 @@
         "is_fragile": false,
         "eta": 0,
         "position": [
-          5,
+          7,
+          13,
+          0
+        ]
+      },
+      {
+        "id": "PKG_25",
+        "dimensions": {
+          "w": 4,
+          "l": 5,
+          "h": 3
+        },
+        "orientation": {
+          "w": "z",
+          "l": "y",
+          "h": "x"
+        },
+        "cur_dim": {
+          "w": 3,
+          "l": 5,
+          "h": 4
+        },
+        "value": 19,
+        "weight": 17,
+        "is_fragile": true,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_26",
+        "dimensions": {
+          "w": 5,
+          "l": 2,
+          "h": 4
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 5,
+          "l": 2,
+          "h": 4
+        },
+        "value": 65,
+        "weight": 47,
+        "is_fragile": false,
+        "eta": 0,
+        "position": [
+          0,
+          9,
+          5
+        ]
+      },
+      {
+        "id": "PKG_27",
+        "dimensions": {
+          "w": 5,
+          "l": 5,
+          "h": 2
+        },
+        "orientation": {
+          "w": "z",
+          "l": "y",
+          "h": "x"
+        },
+        "cur_dim": {
+          "w": 2,
+          "l": 5,
+          "h": 5
+        },
+        "value": 84,
+        "weight": 29,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_28",
+        "dimensions": {
+          "w": 5,
+          "l": 5,
+          "h": 5
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 5,
+          "l": 5,
+          "h": 5
+        },
+        "value": 44,
+        "weight": 33,
+        "is_fragile": true,
+        "eta": 0,
+        "position": [
+          0,
           12,
-          14
+          0
+        ]
+      },
+      {
+        "id": "PKG_29",
+        "dimensions": {
+          "w": 6,
+          "l": 5,
+          "h": 2
+        },
+        "orientation": {
+          "w": "z",
+          "l": "y",
+          "h": "x"
+        },
+        "cur_dim": {
+          "w": 2,
+          "l": 5,
+          "h": 6
+        },
+        "value": 13,
+        "weight": 43,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_30",
+        "dimensions": {
+          "w": 3,
+          "l": 4,
+          "h": 2
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 3,
+          "l": 4,
+          "h": 2
+        },
+        "value": 63,
+        "weight": 21,
+        "is_fragile": false,
+        "eta": 0,
+        "position": [
+          10,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "PKG_31",
+        "dimensions": {
+          "w": 5,
+          "l": 5,
+          "h": 3
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 5,
+          "l": 5,
+          "h": 3
+        },
+        "value": 46,
+        "weight": 29,
+        "is_fragile": false,
+        "eta": 0,
+        "position": [
+          9,
+          8,
+          0
+        ]
+      },
+      {
+        "id": "PKG_32",
+        "dimensions": {
+          "w": 3,
+          "l": 3,
+          "h": 5
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 3,
+          "l": 3,
+          "h": 5
+        },
+        "value": 69,
+        "weight": 25,
+        "is_fragile": true,
+        "eta": 0,
+        "position": [
+          9,
+          19,
+          2
+        ]
+      },
+      {
+        "id": "PKG_33",
+        "dimensions": {
+          "w": 6,
+          "l": 5,
+          "h": 2
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 6,
+          "l": 5,
+          "h": 2
+        },
+        "value": 47,
+        "weight": 20,
+        "is_fragile": false,
+        "eta": 0,
+        "position": [
+          8,
+          4,
+          5
+        ]
+      },
+      {
+        "id": "PKG_34",
+        "dimensions": {
+          "w": 6,
+          "l": 4,
+          "h": 6
+        },
+        "orientation": {
+          "w": "x",
+          "l": "z",
+          "h": "y"
+        },
+        "cur_dim": {
+          "w": 6,
+          "l": 6,
+          "h": 4
+        },
+        "value": 25,
+        "weight": 33,
+        "is_fragile": true,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_35",
+        "dimensions": {
+          "w": 6,
+          "l": 6,
+          "h": 5
+        },
+        "orientation": {
+          "w": "x",
+          "l": "z",
+          "h": "y"
+        },
+        "cur_dim": {
+          "w": 6,
+          "l": 5,
+          "h": 6
+        },
+        "value": 21,
+        "weight": 12,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_36",
+        "dimensions": {
+          "w": 3,
+          "l": 4,
+          "h": 3
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 3,
+          "l": 4,
+          "h": 3
+        },
+        "value": 65,
+        "weight": 18,
+        "is_fragile": false,
+        "eta": 0,
+        "position": [
+          8,
+          6,
+          7
+        ]
+      },
+      {
+        "id": "PKG_37",
+        "dimensions": {
+          "w": 5,
+          "l": 3,
+          "h": 4
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 5,
+          "l": 3,
+          "h": 4
+        },
+        "value": 83,
+        "weight": 7,
+        "is_fragile": false,
+        "eta": 0,
+        "position": [
+          8,
+          10,
+          5
+        ]
+      },
+      {
+        "id": "PKG_38",
+        "dimensions": {
+          "w": 2,
+          "l": 4,
+          "h": 2
+        },
+        "orientation": {
+          "w": "x",
+          "l": "z",
+          "h": "y"
+        },
+        "cur_dim": {
+          "w": 2,
+          "l": 2,
+          "h": 4
+        },
+        "value": 44,
+        "weight": 32,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_39",
+        "dimensions": {
+          "w": 4,
+          "l": 4,
+          "h": 2
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 4,
+          "l": 4,
+          "h": 2
+        },
+        "value": 19,
+        "weight": 12,
+        "is_fragile": false,
+        "eta": 0,
+        "position": [
+          9,
+          17,
+          0
         ]
       }
     ],
-    "value": 1273.0,
-    "weight": 760.0
+    "value": 849.0,
+    "weight": 447.0
   },
   "final_state": {
     "truck": {
       "dimensions": {
-        "w": 20,
-        "l": 40,
-        "h": 20
+        "w": 14,
+        "l": 24,
+        "h": 12
       },
-      "max_capacity": 2000
+      "max_capacity": 450
     },
     "placements": {
-      "PKG_0": [
-        3,
-        3,
-        2
-      ],
-      "PKG_1": [
-        15,
-        29,
-        0
-      ],
-      "PKG_2": [
-        4,
-        29,
-        5
-      ],
+      "PKG_0": null,
+      "PKG_1": null,
+      "PKG_2": null,
       "PKG_3": [
-        3,
-        15,
-        4
+        0,
+        17,
+        3
       ],
       "PKG_4": [
-        0,
-        6,
+        8,
+        8,
         0
       ],
       "PKG_5": [
-        12,
-        9,
-        3
+        6,
+        16,
+        9
       ],
       "PKG_6": [
-        5,
-        22,
-        12
+        3,
+        16,
+        0
       ],
-      "PKG_7": [
-        4,
-        12,
-        11
-      ],
+      "PKG_7": null,
       "PKG_8": [
-        13,
-        15,
-        3
+        7,
+        12,
+        0
       ],
       "PKG_9": [
         7,
-        19,
-        6
+        16,
+        3
       ],
-      "PKG_10": [
-        5,
-        10,
-        5
-      ],
+      "PKG_10": null,
       "PKG_11": [
-        13,
-        5,
+        0,
+        14,
         0
       ],
-      "PKG_12": [
-        6,
-        30,
-        8
-      ],
-      "PKG_13": [
-        7,
-        17,
-        0
-      ],
+      "PKG_12": null,
+      "PKG_13": null,
       "PKG_14": [
-        8,
-        23,
-        2
-      ],
-      "PKG_15": [
-        3,
-        33,
-        0
-      ],
-      "PKG_16": [
         6,
-        23,
-        0
+        2,
+        3
+      ],
+      "PKG_15": null,
+      "PKG_16": [
+        2,
+        20,
+        3
       ],
       "PKG_17": [
-        10,
-        27,
-        6
-      ],
-      "PKG_18": [
+        0,
         4,
-        10,
-        0
+        3
       ],
-      "PKG_19": [
-        4,
-        32,
-        14
-      ],
-      "PKG_20": [
-        1,
-        16,
-        6
-      ],
+      "PKG_18": null,
+      "PKG_19": null,
+      "PKG_20": null,
       "PKG_21": [
-        11,
-        12,
+        4,
+        3,
         0
       ],
-      "PKG_22": [
-        4,
-        10,
-        7
-      ],
+      "PKG_22": null,
       "PKG_23": [
         4,
-        1,
-        0
+        15,
+        3
       ],
       "PKG_24": [
         5,
+        3,
+        8
+      ],
+      "PKG_25": null,
+      "PKG_26": null,
+      "PKG_27": [
+        4,
         12,
-        14
-      ]
+        6
+      ],
+      "PKG_28": [
+        9,
+        8,
+        5
+      ],
+      "PKG_29": null,
+      "PKG_30": null,
+      "PKG_31": null,
+      "PKG_32": null,
+      "PKG_33": null,
+      "PKG_34": null,
+      "PKG_35": null,
+      "PKG_36": [
+        10,
+        16,
+        0
+      ],
+      "PKG_37": [
+        9,
+        2,
+        8
+      ],
+      "PKG_38": null,
+      "PKG_39": null
     },
     "packages": [
       {
@@ -1087,24 +1358,20 @@
           "h": 6
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
-          "h": "z"
+          "w": "z",
+          "l": "x",
+          "h": "y"
         },
         "cur_dim": {
           "w": 3,
-          "l": 3,
-          "h": 6
+          "l": 6,
+          "h": 3
         },
         "value": 30,
         "weight": 40,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          3,
-          3,
-          2
-        ]
+        "position": null
       },
       {
         "id": "PKG_1",
@@ -1115,23 +1382,19 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 3,
-          "l": 6,
-          "h": 4
+          "l": 4,
+          "h": 6
         },
         "value": 40,
         "weight": 43,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          15,
-          29,
-          0
-        ]
+        "position": null
       },
       {
         "id": "PKG_2",
@@ -1141,24 +1404,20 @@
           "h": 3
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
-          "h": "z"
+          "w": "y",
+          "l": "z",
+          "h": "x"
         },
         "cur_dim": {
-          "w": 4,
-          "l": 6,
-          "h": 3
+          "w": 3,
+          "l": 4,
+          "h": 6
         },
         "value": 10,
         "weight": 11,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          4,
-          29,
-          5
-        ]
+        "position": null
       },
       {
         "id": "PKG_3",
@@ -1169,22 +1428,22 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 5,
-          "l": 6,
-          "h": 2
+          "l": 2,
+          "h": 6
         },
         "value": 78,
         "weight": 16,
         "is_fragile": false,
         "eta": 0,
         "position": [
-          3,
-          15,
-          4
+          0,
+          17,
+          3
         ]
       },
       {
@@ -1195,13 +1454,13 @@
           "h": 4
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
-          "w": 2,
-          "l": 5,
+          "w": 5,
+          "l": 2,
           "h": 4
         },
         "value": 19,
@@ -1209,8 +1468,8 @@
         "is_fragile": false,
         "eta": 0,
         "position": [
-          0,
-          6,
+          8,
+          8,
           0
         ]
       },
@@ -1222,8 +1481,8 @@
           "h": 3
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
@@ -1236,9 +1495,9 @@
         "is_fragile": false,
         "eta": 0,
         "position": [
-          12,
-          9,
-          3
+          6,
+          16,
+          9
         ]
       },
       {
@@ -1263,9 +1522,9 @@
         "is_fragile": false,
         "eta": 0,
         "position": [
-          5,
-          22,
-          12
+          3,
+          16,
+          0
         ]
       },
       {
@@ -1276,9 +1535,9 @@
           "h": 3
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
-          "h": "z"
+          "w": "z",
+          "l": "x",
+          "h": "y"
         },
         "cur_dim": {
           "w": 3,
@@ -1289,11 +1548,7 @@
         "weight": 26,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          4,
-          12,
-          11
-        ]
+        "position": null
       },
       {
         "id": "PKG_8",
@@ -1304,22 +1559,22 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 6,
-          "l": 5,
-          "h": 2
+          "l": 2,
+          "h": 5
         },
         "value": 84,
         "weight": 8,
         "is_fragile": false,
         "eta": 0,
         "position": [
-          13,
-          15,
-          3
+          7,
+          12,
+          0
         ]
       },
       {
@@ -1330,13 +1585,13 @@
           "h": 6
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
-          "w": 4,
-          "l": 6,
+          "w": 6,
+          "l": 4,
           "h": 6
         },
         "value": 68,
@@ -1345,8 +1600,8 @@
         "eta": 0,
         "position": [
           7,
-          19,
-          6
+          16,
+          3
         ]
       },
       {
@@ -1357,24 +1612,20 @@
           "h": 2
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
-          "h": "z"
+          "w": "z",
+          "l": "x",
+          "h": "y"
         },
         "cur_dim": {
-          "w": 6,
-          "l": 4,
-          "h": 2
+          "w": 4,
+          "l": 2,
+          "h": 6
         },
         "value": 10,
         "weight": 5,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          5,
-          10,
-          5
-        ]
+        "position": null
       },
       {
         "id": "PKG_11",
@@ -1384,13 +1635,13 @@
           "h": 5
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
+          "w": "y",
+          "l": "x",
           "h": "z"
         },
         "cur_dim": {
-          "w": 3,
-          "l": 2,
+          "w": 2,
+          "l": 3,
           "h": 5
         },
         "value": 74,
@@ -1398,8 +1649,8 @@
         "is_fragile": true,
         "eta": 0,
         "position": [
-          13,
-          5,
+          0,
+          14,
           0
         ]
       },
@@ -1424,11 +1675,7 @@
         "weight": 43,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          6,
-          30,
-          8
-        ]
+        "position": null
       },
       {
         "id": "PKG_13",
@@ -1438,24 +1685,20 @@
           "h": 4
         },
         "orientation": {
-          "w": "x",
-          "l": "y",
-          "h": "z"
+          "w": "z",
+          "l": "x",
+          "h": "y"
         },
         "cur_dim": {
-          "w": 6,
-          "l": 3,
-          "h": 4
+          "w": 3,
+          "l": 4,
+          "h": 6
         },
         "value": 53,
         "weight": 48,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          7,
-          17,
-          0
-        ]
+        "position": null
       },
       {
         "id": "PKG_14",
@@ -1465,23 +1708,23 @@
           "h": 4
         },
         "orientation": {
-          "w": "x",
+          "w": "z",
           "l": "y",
-          "h": "z"
+          "h": "x"
         },
         "cur_dim": {
-          "w": 5,
+          "w": 4,
           "l": 5,
-          "h": 4
+          "h": 5
         },
         "value": 81,
         "weight": 50,
         "is_fragile": false,
         "eta": 0,
         "position": [
-          8,
-          23,
-          2
+          6,
+          2,
+          3
         ]
       },
       {
@@ -1505,11 +1748,7 @@
         "weight": 38,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          3,
-          33,
-          0
-        ]
+        "position": null
       },
       {
         "id": "PKG_16",
@@ -1520,22 +1759,22 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 5,
-          "l": 6,
-          "h": 2
+          "l": 2,
+          "h": 6
         },
         "value": 44,
         "weight": 24,
         "is_fragile": false,
         "eta": 0,
         "position": [
-          6,
-          23,
-          0
+          2,
+          20,
+          3
         ]
       },
       {
@@ -1546,23 +1785,23 @@
           "h": 6
         },
         "orientation": {
-          "w": "x",
+          "w": "z",
           "l": "y",
-          "h": "z"
+          "h": "x"
         },
         "cur_dim": {
-          "w": 4,
+          "w": 6,
           "l": 5,
-          "h": 6
+          "h": 4
         },
         "value": 86,
         "weight": 38,
         "is_fragile": false,
         "eta": 0,
         "position": [
-          10,
-          27,
-          6
+          0,
+          4,
+          3
         ]
       },
       {
@@ -1574,23 +1813,19 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 5,
-          "l": 3,
-          "h": 5
+          "l": 5,
+          "h": 3
         },
         "value": 69,
         "weight": 37,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          4,
-          10,
-          0
-        ]
+        "position": null
       },
       {
         "id": "PKG_19",
@@ -1601,23 +1836,19 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 3,
-          "l": 4,
-          "h": 2
+          "l": 2,
+          "h": 4
         },
         "value": 17,
         "weight": 23,
         "is_fragile": true,
         "eta": 0,
-        "position": [
-          4,
-          32,
-          14
-        ]
+        "position": null
       },
       {
         "id": "PKG_20",
@@ -1627,9 +1858,9 @@
           "h": 6
         },
         "orientation": {
-          "w": "x",
+          "w": "z",
           "l": "y",
-          "h": "z"
+          "h": "x"
         },
         "cur_dim": {
           "w": 6,
@@ -1640,11 +1871,7 @@
         "weight": 37,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          1,
-          16,
-          6
-        ]
+        "position": null
       },
       {
         "id": "PKG_21",
@@ -1668,8 +1895,8 @@
         "is_fragile": false,
         "eta": 0,
         "position": [
-          11,
-          12,
+          4,
+          3,
           0
         ]
       },
@@ -1694,11 +1921,7 @@
         "weight": 46,
         "is_fragile": false,
         "eta": 0,
-        "position": [
-          4,
-          10,
-          7
-        ]
+        "position": null
       },
       {
         "id": "PKG_23",
@@ -1709,13 +1932,13 @@
         },
         "orientation": {
           "w": "x",
-          "l": "y",
-          "h": "z"
+          "l": "z",
+          "h": "y"
         },
         "cur_dim": {
           "w": 3,
-          "l": 3,
-          "h": 2
+          "l": 2,
+          "h": 3
         },
         "value": 59,
         "weight": 47,
@@ -1723,8 +1946,8 @@
         "eta": 0,
         "position": [
           4,
-          1,
-          0
+          15,
+          3
         ]
       },
       {
@@ -1736,6 +1959,294 @@
         },
         "orientation": {
           "w": "x",
+          "l": "z",
+          "h": "y"
+        },
+        "cur_dim": {
+          "w": 3,
+          "l": 3,
+          "h": 4
+        },
+        "value": 84,
+        "weight": 46,
+        "is_fragile": false,
+        "eta": 0,
+        "position": [
+          5,
+          3,
+          8
+        ]
+      },
+      {
+        "id": "PKG_25",
+        "dimensions": {
+          "w": 4,
+          "l": 5,
+          "h": 3
+        },
+        "orientation": {
+          "w": "y",
+          "l": "z",
+          "h": "x"
+        },
+        "cur_dim": {
+          "w": 3,
+          "l": 4,
+          "h": 5
+        },
+        "value": 19,
+        "weight": 17,
+        "is_fragile": true,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_26",
+        "dimensions": {
+          "w": 5,
+          "l": 2,
+          "h": 4
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 2,
+          "l": 5,
+          "h": 4
+        },
+        "value": 65,
+        "weight": 47,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_27",
+        "dimensions": {
+          "w": 5,
+          "l": 5,
+          "h": 2
+        },
+        "orientation": {
+          "w": "z",
+          "l": "y",
+          "h": "x"
+        },
+        "cur_dim": {
+          "w": 2,
+          "l": 5,
+          "h": 5
+        },
+        "value": 84,
+        "weight": 29,
+        "is_fragile": false,
+        "eta": 0,
+        "position": [
+          4,
+          12,
+          6
+        ]
+      },
+      {
+        "id": "PKG_28",
+        "dimensions": {
+          "w": 5,
+          "l": 5,
+          "h": 5
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 5,
+          "l": 5,
+          "h": 5
+        },
+        "value": 44,
+        "weight": 33,
+        "is_fragile": true,
+        "eta": 0,
+        "position": [
+          9,
+          8,
+          5
+        ]
+      },
+      {
+        "id": "PKG_29",
+        "dimensions": {
+          "w": 6,
+          "l": 5,
+          "h": 2
+        },
+        "orientation": {
+          "w": "y",
+          "l": "z",
+          "h": "x"
+        },
+        "cur_dim": {
+          "w": 2,
+          "l": 6,
+          "h": 5
+        },
+        "value": 13,
+        "weight": 43,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_30",
+        "dimensions": {
+          "w": 3,
+          "l": 4,
+          "h": 2
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 4,
+          "l": 3,
+          "h": 2
+        },
+        "value": 63,
+        "weight": 21,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_31",
+        "dimensions": {
+          "w": 5,
+          "l": 5,
+          "h": 3
+        },
+        "orientation": {
+          "w": "x",
+          "l": "z",
+          "h": "y"
+        },
+        "cur_dim": {
+          "w": 5,
+          "l": 3,
+          "h": 5
+        },
+        "value": 46,
+        "weight": 29,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_32",
+        "dimensions": {
+          "w": 3,
+          "l": 3,
+          "h": 5
+        },
+        "orientation": {
+          "w": "x",
+          "l": "z",
+          "h": "y"
+        },
+        "cur_dim": {
+          "w": 3,
+          "l": 5,
+          "h": 3
+        },
+        "value": 69,
+        "weight": 25,
+        "is_fragile": true,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_33",
+        "dimensions": {
+          "w": 6,
+          "l": 5,
+          "h": 2
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 5,
+          "l": 6,
+          "h": 2
+        },
+        "value": 47,
+        "weight": 20,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_34",
+        "dimensions": {
+          "w": 6,
+          "l": 4,
+          "h": 6
+        },
+        "orientation": {
+          "w": "x",
+          "l": "y",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 6,
+          "l": 4,
+          "h": 6
+        },
+        "value": 25,
+        "weight": 33,
+        "is_fragile": true,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_35",
+        "dimensions": {
+          "w": 6,
+          "l": 6,
+          "h": 5
+        },
+        "orientation": {
+          "w": "y",
+          "l": "z",
+          "h": "x"
+        },
+        "cur_dim": {
+          "w": 5,
+          "l": 6,
+          "h": 6
+        },
+        "value": 21,
+        "weight": 12,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_36",
+        "dimensions": {
+          "w": 3,
+          "l": 4,
+          "h": 3
+        },
+        "orientation": {
+          "w": "x",
           "l": "y",
           "h": "z"
         },
@@ -1744,18 +2255,91 @@
           "l": 4,
           "h": 3
         },
-        "value": 84,
-        "weight": 46,
+        "value": 65,
+        "weight": 18,
         "is_fragile": false,
         "eta": 0,
         "position": [
-          5,
-          12,
-          14
+          10,
+          16,
+          0
         ]
+      },
+      {
+        "id": "PKG_37",
+        "dimensions": {
+          "w": 5,
+          "l": 3,
+          "h": 4
+        },
+        "orientation": {
+          "w": "y",
+          "l": "x",
+          "h": "z"
+        },
+        "cur_dim": {
+          "w": 3,
+          "l": 5,
+          "h": 4
+        },
+        "value": 83,
+        "weight": 7,
+        "is_fragile": false,
+        "eta": 0,
+        "position": [
+          9,
+          2,
+          8
+        ]
+      },
+      {
+        "id": "PKG_38",
+        "dimensions": {
+          "w": 2,
+          "l": 4,
+          "h": 2
+        },
+        "orientation": {
+          "w": "z",
+          "l": "x",
+          "h": "y"
+        },
+        "cur_dim": {
+          "w": 4,
+          "l": 2,
+          "h": 2
+        },
+        "value": 44,
+        "weight": 32,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
+      },
+      {
+        "id": "PKG_39",
+        "dimensions": {
+          "w": 4,
+          "l": 4,
+          "h": 2
+        },
+        "orientation": {
+          "w": "z",
+          "l": "y",
+          "h": "x"
+        },
+        "cur_dim": {
+          "w": 2,
+          "l": 4,
+          "h": 4
+        },
+        "value": 19,
+        "weight": 12,
+        "is_fragile": false,
+        "eta": 0,
+        "position": null
       }
     ],
-    "value": 1273.0,
-    "weight": 760.0
+    "value": 1114.0,
+    "weight": 450.0
   }
 }

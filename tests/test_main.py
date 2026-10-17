@@ -18,7 +18,15 @@ class TestGenerateTestCase:
 
     def test_jumlah_paket_dan_truk(self):
         truck, packages = generate_test_case()
-        assert truck.dim == {"w": 20, "l": 40, "h": 20}
-        assert truck.max_cap == 2000
-        assert len(packages) == 25
-        assert len({p.id for p in packages}) == 25
+        assert truck.dim == {"w": 14, "l": 24, "h": 12}
+        assert truck.max_cap == 450
+        assert len(packages) == 40
+        assert len({p.id for p in packages}) == 40
+
+    def test_kendala_mengikat(self):
+        truck, packages = generate_test_case()
+        total_weight = sum(p.w for p in packages)
+        total_volume = sum(p.og_dim["w"] * p.og_dim["l"] * p.og_dim["h"] for p in packages)
+        truck_volume = truck.dim["w"] * truck.dim["l"] * truck.dim["h"]
+        assert total_weight > truck.max_cap
+        assert total_volume > 0.5 * truck_volume
