@@ -6,4 +6,5 @@ venv/
 
 .vscode/
 .idea/
-.DS_Store
+.pytest_cache/
+output_baseline/

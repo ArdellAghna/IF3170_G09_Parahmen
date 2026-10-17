@@ -128,6 +128,10 @@ class Package:
             position=None if data.get("position") is None else tuple(data["position"]),
             orientation=data.get("orientation"),
         )
+        if data.get("orientation") is not None:
+            pkg.set_orientation(dict(data["orientation"]))
+        elif data.get("cur_dim") is not None:
+            pkg.cur_dim = dict(data["cur_dim"])
         return pkg
 
     def __repr__(self) -> str:

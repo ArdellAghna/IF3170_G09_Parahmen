@@ -2,14 +2,16 @@ from __future__ import annotations
 
 import random
 
+from src.algoritma import hill_climbing
 from src.algoritma.hill_climbing import HCParams, VARIANTS, run
+from src.config import RANDOM_SEED
 from src.constraints import check_feasible
 from src.init import random_initial_state
 from src.model.result import Result
 from src.moves import neighbor_states
 from src.objective import objective
 
-from tests.helper import make_package, make_truck
+from tests.helper import make_package, make_state, make_truck
 
 
 def _build_case(n_pkgs=6):
@@ -25,7 +27,7 @@ def _build_case(n_pkgs=6):
 class TestRandomInitialState:
     def test_initial_state_feasible(self):
         truck, packages = _build_case()
-        state = random_initial_state(truck, packages, random.Random(42))
+        state = random_initial_state(truck, packages, random.Random(RANDOM_SEED))
         feasible, violations = check_feasible(state)
         assert feasible is True, f"violations: {violations}"
 
@@ -117,3 +119,40 @@ class TestHillClimbing:
         )
         assert res.metrics["restarts"] == 2
         assert len(res.metrics["iterations_per_restart"]) == 3  # 1 segmen awal + 2 restart
+
+
+class TestSidewaysStop:
+    def test_sideways_berhenti_saat_batas_tercapai(self):
+        truck = make_truck(w=10, l=10, h=10, max_cap=100)
+        a = make_package("a", w=1, l=1, h=1, value=10, position=(0, 0, 0))
+        b = make_package("b", w=1, l=1, h=1, value=10, position=(2, 0, 0))
+        state = make_state(truck, [a, b])
+
+        plateau = [
+            nb for nb in neighbor_states(state, random.Random(1), n_neighbors=20)
+            if objective(nb) == objective(state)
+        ]
+        assert plateau, "prasyarat test: harus ada tetangga bernilai sama"
+
+        res = run(
+            state,
+            HCParams(variant="sideways", max_iterations=50, n_neighbors=20, max_sideways=1),
+            seed=1,
+        )
+        assert res.metrics["sideways_moves"] == 1
+        assert res.n_iterations <= 2, "sideways harus berhenti saat batas tercapai"
+        assert res.final_objective >= res.initial_objective
+
+
+class TestVariantFunctions:
+    def test_setiap_varian_punya_fungsi_sendiri(self):
+        for nama in ("_steepest_ascent", "_sideways_move", "_stochastic", "_random_restart"):
+            assert callable(getattr(hill_climbing, nama)), nama
+
+    def test_dispatch_varian_mengembalikan_variant_sesuai(self):
+        truck = make_truck(w=10, l=10, h=10, max_cap=100)
+        pkg = make_package("a", w=1, l=1, h=1, value=10, position=(0, 0, 0))
+        state = make_state(truck, [pkg])
+        for variant in VARIANTS:
+            res = run(state, HCParams(variant=variant, max_iterations=3, n_neighbors=5), seed=1)
+            assert res.variant == variant

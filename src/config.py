@@ -7,6 +7,7 @@ OUTPUT_DIR = BASE_DIR / "output"
 
 # Buat direktori output
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+RANDOM_SEED = 317009
 
 # Parameter Eksperimen Dasar (selain GA) - Wajib run 3 kali sesuai spek
 NUM_RUNS_STANDARD = 3

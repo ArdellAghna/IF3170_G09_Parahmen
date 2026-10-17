@@ -112,6 +112,13 @@
             display: none;
         }
 
+        #prob-container {
+            width: 100%;
+            height: 200px;
+            margin-top: 12px;
+            display: none;
+        }
+
         #canvas-container { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1; }
         .legend { margin-top: 15px; font-size: 0.8rem; }
         .legend-item { display: flex; align-items: center; margin-bottom: 4px; }
@@ -138,19 +145,28 @@
             <div class="stat-row"><span class="stat-label">Total Iterasi:</span><span class="stat-value" id="valIter">-</span></div>
             <div class="stat-row" id="rowStuck" style="display: none;"><span class="stat-label">Frekuensi Stuck:</span><span class="stat-value" id="valStuck">-</span></div>
             <div class="stat-row" id="rowAccepted" style="display: none;"><span class="stat-label">Langkah Memburuk Diterima:</span><span class="stat-value" id="valAccepted">-</span></div>
+            <div class="stat-row" id="rowSideways" style="display: none;"><span class="stat-label">Sideways Move:</span><span class="stat-value" id="valSideways">-</span></div>
+            <div class="stat-row" id="rowRestarts" style="display: none;"><span class="stat-label">Jumlah Restart:</span><span class="stat-value" id="valRestarts">-</span></div>
+            <div class="stat-row" id="rowIterRestart" style="display: none;"><span class="stat-label">Iterasi per Restart:</span><span class="stat-value" id="valIterRestart">-</span></div>
             <hr>
             <div class="stat-row"><span class="stat-label">Nilai Saat Ini:</span><span class="stat-value" id="valValue" style="color:#10b981">-</span></div>
             <div class="stat-row"><span class="stat-label">Total Weight:</span><span class="stat-value" id="valWeight">-</span></div>
             <div class="stat-row"><span class="stat-label">Paket Masuk:</span><span class="stat-value" id="valInside">-</span></div>
+            <div class="stat-row"><span class="stat-label">Paket Luar:</span><span class="stat-value" id="valOutside">-</span></div>
         </div>
 
         <div id="chart-container">
             <canvas id="objChart"></canvas>
         </div>
 
+        <div id="prob-container">
+            <canvas id="probChart"></canvas>
+        </div>
+
         <div class="legend">
             <div class="legend-item"><div class="legend-color" style="background:#3b82f6"></div> Paket Biasa</div>
             <div class="legend-item"><div class="legend-color" style="background:#ef4444"></div> Paket Fragile</div>
+            <div class="legend-item"><div class="legend-color" style="background:#64748b"></div> Paket di Luar Truk</div>
             <div class="legend-item"><div class="legend-color" style="border: 1px solid #ffffff; background:transparent"></div> Peti Kemas</div>
         </div>
     </div>
@@ -162,6 +178,7 @@
         let truckGroup;
         let loadedJson = null;
         let myChart = null;
+        let myChart2 = null;
 
         function init() {
             const container = document.getElementById('canvas-container');
@@ -271,10 +288,36 @@
                 truckGroup.add(mesh);
             });
 
+            const outside = stateData.packages.filter(pkg => !stateData.placements[pkg.id]);
+            let outsideZ = 0;
+            outside.forEach(pkg => {
+                const pw = pkg.cur_dim.w;
+                const ph = pkg.cur_dim.h;
+                const pl = pkg.cur_dim.l;
+
+                const geo = new THREE.BoxGeometry(pw, ph, pl);
+                const mat = new THREE.MeshPhongMaterial({
+                    color: pkg.is_fragile ? 0xfca5a5 : 0x64748b,
+                    transparent: true,
+                    opacity: 0.6,
+                    shininess: 30
+                });
+
+                const mesh = new THREE.Mesh(geo, mat);
+                mesh.position.set(tw + 4 + pw / 2, ph / 2, outsideZ + pl / 2);
+
+                const pkgEdges = new THREE.EdgesGeometry(geo);
+                mesh.add(new THREE.LineSegments(pkgEdges, new THREE.LineBasicMaterial({ color: 0x334155 })));
+                truckGroup.add(mesh);
+
+                outsideZ += pl + 1;
+            });
+
             // Update UI State Properties
             document.getElementById('valValue').innerText = totalVal;
             document.getElementById('valWeight').innerText = totalW + " / " + stateData.truck.max_capacity;
             document.getElementById('valInside').innerText = countInside + " / " + stateData.packages.length;
+            document.getElementById('valOutside').innerText = outside.length + " / " + stateData.packages.length;
             
             controls.target.set(tw/2, th/2, tl/2);
         }
@@ -282,35 +325,23 @@
         function drawChart(json) {
             const ctx = document.getElementById('objChart').getContext('2d');
             document.getElementById('chart-container').style.display = 'block';
-            
+
             if(myChart) myChart.destroy();
-            
+
             const labels = Array.from({length: json.history.length}, (_, i) => i);
             let datasets = [{
-                label: 'Objective (Max)',
+                label: 'Objective (best-so-far)',
                 data: json.history,
                 borderColor: '#10b981',
                 tension: 0.1,
                 pointRadius: 0
             }];
 
-            // Jika Algoritma GA, tambahkan plot rata-rata
+            // Jika Algoritma GA, tambahkan plot rata-rata populasi
             if(json.metrics && json.metrics.avg_history) {
                 datasets.push({
-                    label: 'Objective (Avg)',
+                    label: 'Objective (Avg Populasi)',
                     data: json.metrics.avg_history,
-                    borderColor: '#f59e0b',
-                    borderDash: [5, 5],
-                    tension: 0.1,
-                    pointRadius: 0
-                });
-            }
-
-            // Jika Algoritma SA, tambahkan plot probabilitas e^(ΔE/T)
-            if(json.metrics && json.metrics.prob_history) {
-                datasets.push({
-                    label: 'e^(ΔE/T)',
-                    data: json.metrics.prob_history,
                     borderColor: '#f59e0b',
                     borderDash: [5, 5],
                     tension: 0.1,
@@ -333,6 +364,39 @@
                     }
                 }
             });
+
+            const probContainer = document.getElementById('prob-container');
+            if(myChart2) { myChart2.destroy(); myChart2 = null; }
+            if(json.metrics && json.metrics.prob_history) {
+                probContainer.style.display = 'block';
+                const probLabels = Array.from({length: json.metrics.prob_history.length}, (_, i) => i);
+                myChart2 = new Chart(document.getElementById('probChart').getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: probLabels,
+                        datasets: [{
+                            label: 'e^(dE/T)',
+                            data: json.metrics.prob_history,
+                            borderColor: '#f59e0b',
+                            tension: 0.1,
+                            pointRadius: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { labels: { color: '#f8fafc', font: {size: 10} } }
+                        },
+                        scales: {
+                            x: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } },
+                            y: { ticks: { color: '#94a3b8' }, grid: { color: '#1e293b' } }
+                        }
+                    }
+                });
+            } else {
+                probContainer.style.display = 'none';
+            }
         }
 
         document.getElementById('jsonInput').addEventListener('change', (e) => {
@@ -363,6 +427,24 @@
                     } else {
                         document.getElementById('rowStuck').style.display = 'none';
                         document.getElementById('rowAccepted').style.display = 'none';
+                    }
+
+                    if(loadedJson.algorithm === 'hill_climbing' && loadedJson.metrics) {
+                        document.getElementById('rowSideways').style.display = 'flex';
+                        document.getElementById('valSideways').innerText = loadedJson.metrics.sideways_moves;
+                        if(loadedJson.variant === 'restart') {
+                            document.getElementById('rowRestarts').style.display = 'flex';
+                            document.getElementById('rowIterRestart').style.display = 'flex';
+                            document.getElementById('valRestarts').innerText = loadedJson.metrics.restarts;
+                            document.getElementById('valIterRestart').innerText = (loadedJson.metrics.iterations_per_restart || []).join(', ');
+                        } else {
+                            document.getElementById('rowRestarts').style.display = 'none';
+                            document.getElementById('rowIterRestart').style.display = 'none';
+                        }
+                    } else {
+                        document.getElementById('rowSideways').style.display = 'none';
+                        document.getElementById('rowRestarts').style.display = 'none';
+                        document.getElementById('rowIterRestart').style.display = 'none';
                     }
 
                     drawChart(loadedJson);

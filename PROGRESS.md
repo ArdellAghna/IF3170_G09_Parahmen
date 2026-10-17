@@ -1,6 +1,6 @@
 # Progress bagian core + moves + hill climbing
 
-Update terakhir: 7 Oktober 2026
+Update terakhir: 17 Oktober 2026
 
 Hai kak halo wan, ini catatan log nya
 
@@ -35,8 +35,4 @@ Hai kak halo wan, ini catatan log nya
 ### Run nya pake .venv
 
 ### Yang belum
-
-- SA
-- GA
-- Visualisasi
-- `src/main.py` (CLI) sama `src/config.py`
+- Harusnya udah semua

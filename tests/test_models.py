@@ -81,6 +81,14 @@ class TestPackage:
         assert p2.is_fragile == pkg.is_fragile
         assert p2.eta == pkg.eta
 
+    def test_package_to_dict_from_dict_setelah_rotasi(self):
+        pkg = make_package("a", w=4, l=2, h=3)
+        pkg.rotate("x")
+        d = pkg.to_dict()
+        p2 = Package.from_dict(d)
+        assert p2.cur_dim == pkg.cur_dim
+        assert p2.orient == pkg.orient
+
 
 class TestTruck:
     def test_truck_to_dict_from_dict(self):
@@ -114,6 +122,15 @@ class TestState:
         assert s2.package_by_id("a").is_fragile is True
         assert s2.package_by_id("b").position is None
         assert s2.truck.dim == truck.dim
+
+    def test_state_from_dict_mempertahankan_paket_terotasi(self):
+        truck = make_truck(w=10, l=10, h=10)
+        a = make_package("a", w=4, l=2, h=3, position=(0, 0, 0))
+        a.rotate("z")
+        state = make_state(truck, [a])
+        s2 = State.from_dict(state.to_dict())
+        assert s2.package_by_id("a").cur_dim == a.cur_dim
+        assert s2.package_by_id("a").orient == a.orient
 
     def test_set_position_invalid_id(self):
         truck = make_truck()
